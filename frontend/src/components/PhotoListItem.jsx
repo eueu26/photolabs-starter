@@ -1,15 +1,22 @@
 import React from "react";
-
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
-// import PhotoList from "./PhotoList";
 
 const PhotoListItem = (props) => {
-  const { imageSource, profile, name, location, id, username } = props;
+  const {
+    imageSource,
+    profile,
+    name,
+    location,
+    id,
+    username,
+    toggleFavorite,
+    favoritePhotos
+  } = props;
 
   return (
     <div className="photo-list__item">
-      <PhotoFavButton />
+      <PhotoFavButton photoId={id} toggleFavorite={toggleFavorite} favoritePhotos={favoritePhotos}/>
       <img
         className="photo-list__image"
         src={imageSource}
@@ -21,7 +28,8 @@ const PhotoListItem = (props) => {
           src={profile}
           alt={`${username}'s profile`}
         />
-        <h3 className="photo-list__user-info">{name}
+        <h3 className="photo-list__user-info">
+          {name}
           <p className="photo-list__user-location">
             {location.city}, {location.country}
           </p>

@@ -7,8 +7,6 @@ const HomeRoute = (props) => {
   const { photos, topics } = props;
   const [ favoritePhotos, setFavoritePhotos ] = useState([]);
 
-
-
   // array of numbers
   const toggleFavorite = (photoId) => {
     if (favoritePhotos.includes(photoId)) {
@@ -20,7 +18,7 @@ const HomeRoute = (props) => {
 
   return (
     <div className="home-route">
-      <TopNavigationBar favoriteCount={favoritePhotos.length} topics={topics}/>
+      <TopNavigationBar favoriteCount={favoritePhotos.length} topics={topics} toggleFavorite={toggleFavorite} favoritePhotos={favoritePhotos} />
       <div>
         <PhotoList photos={photos} toggleFavorite={toggleFavorite} favoritePhotos={favoritePhotos}/>
       </div>

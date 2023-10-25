@@ -4,7 +4,7 @@ import TopicList from "./TopicList";
 import "../styles/TopNavigationBar.scss";
 
 const TopNavigationBar = (props) => {
-  const { topics, favoriteCount } = props;
+  const { topics, favoriteCount, toggleFavorite, favoritePhotos } = props;
 
   return (
     <div className="top-nav-bar">
@@ -15,7 +15,7 @@ const TopNavigationBar = (props) => {
         </div>
       )}
       <TopicList topics={topics} />
-      <FavBadge />
+      <FavBadge toggleFavorite={toggleFavorite} favoritePhotos={favoritePhotos}/>
     </div>
   );
 };

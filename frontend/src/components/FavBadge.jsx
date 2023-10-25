@@ -3,10 +3,10 @@ import "../styles/FavBadge.scss";
 import FavIcon from "./FavIcon";
 
 const FavBadge = (props) => {
-  const { favoriteCount } = props;
+  const { favoritePhotos } = props;
   return (
     <div className="fav-badge">
-      <FavIcon displayAlert={favoriteCount} selected={favoriteCount}/>
+      <FavIcon selected={favoritePhotos.length > 0} displayAlert={favoritePhotos.length > 0}/>
     </div>
   );
 };
