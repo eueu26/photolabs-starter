@@ -4,7 +4,7 @@ import '../styles/HomeRoute.scss';
 import PhotoList from 'components/PhotoList';
 
 const HomeRoute = (props) => {
-  const { photos, topics } = props;
+  const { photos, topics, openModal } = props;
   const [ favoritePhotos, setFavoritePhotos ] = useState([]);
 
   // array of numbers
@@ -20,7 +20,7 @@ const HomeRoute = (props) => {
     <div className="home-route">
       <TopNavigationBar favoriteCount={favoritePhotos.length} topics={topics} toggleFavorite={toggleFavorite} favoritePhotos={favoritePhotos} />
       <div>
-        <PhotoList photos={photos} toggleFavorite={toggleFavorite} favoritePhotos={favoritePhotos}/>
+        <PhotoList photos={photos} toggleFavorite={toggleFavorite} favoritePhotos={favoritePhotos} openModal={openModal} />
       </div>
     </div>
   );

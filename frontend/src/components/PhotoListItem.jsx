@@ -11,7 +11,8 @@ const PhotoListItem = (props) => {
     id,
     username,
     toggleFavorite,
-    favoritePhotos
+    favoritePhotos,
+    openModal
   } = props;
 
   return (
@@ -21,6 +22,7 @@ const PhotoListItem = (props) => {
         className="photo-list__image"
         src={imageSource}
         alt={`Photo ${id}`}
+        onClick={openModal}
       />
       <div className="photo-list__user-details">
         <img

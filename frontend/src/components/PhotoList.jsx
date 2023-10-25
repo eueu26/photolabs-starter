@@ -57,7 +57,7 @@ import "../styles/PhotoList.scss";
 // ];
 
 const PhotoList = (props) => {
-  const { photos, toggleFavorite, favoritePhotos } = props;
+  const { photos, toggleFavorite, favoritePhotos, openModal } = props;
   return (
     <ul className="photo-list">
       {photos.map((photo) => (
@@ -71,6 +71,7 @@ const PhotoList = (props) => {
           profile={photo.user.profile}
           favoritePhotos={favoritePhotos}
           toggleFavorite={toggleFavorite}
+          openModal={openModal}
         />
       ))}
     </ul>

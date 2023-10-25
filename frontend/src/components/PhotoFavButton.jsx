@@ -1,7 +1,7 @@
 import React from "react";
 import FavIcon from "./FavIcon";
 import "../styles/PhotoFavButton.scss";
-import photos from "mocks/photos";
+
 
 const PhotoFavButton = (props) => {
   // const [isFavorited, setFavorited] = useState(false);
