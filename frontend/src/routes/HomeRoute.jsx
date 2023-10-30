@@ -1,26 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TopNavigationBar from 'components/TopNavigationBar';
 import '../styles/HomeRoute.scss';
 import PhotoList from 'components/PhotoList';
 
 const HomeRoute = (props) => {
-  const { photos, topics, openModal } = props;
-  const [ favoritePhotos, setFavoritePhotos ] = useState([]);
-
-  // array of numbers
-  const toggleFavorite = (photoId) => {
-    if (favoritePhotos.includes(photoId)) {
-      setFavoritePhotos(favoritePhotos.filter((id) => id !== photoId));
-    } else {
-      setFavoritePhotos([...favoritePhotos, photoId]);
-    }
-  };
+  const { photos, topics, openModal, selectedPhoto, toggleFavorite, favoritePhotos } = props;
+  
 
   return (
     <div className="home-route">
-      <TopNavigationBar favoriteCount={favoritePhotos.length} topics={topics} toggleFavorite={toggleFavorite} favoritePhotos={favoritePhotos} />
+      <TopNavigationBar  topics={topics} toggleFavorite={toggleFavorite} favoritePhotos={favoritePhotos} />
       <div>
-        <PhotoList photos={photos} toggleFavorite={toggleFavorite} favoritePhotos={favoritePhotos} openModal={openModal} />
+        <PhotoList photos={photos} toggleFavorite={toggleFavorite} favoritePhotos={favoritePhotos} openModal={openModal} selectedPhoto={selectedPhoto} />
       </div>
     </div>
   );

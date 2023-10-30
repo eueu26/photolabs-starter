@@ -12,17 +12,33 @@ const PhotoListItem = (props) => {
     username,
     toggleFavorite,
     favoritePhotos,
-    openModal
+    openModal,
+    similarPhotos,
   } = props;
 
   return (
-    <div className="photo-list__item">
-      <PhotoFavButton photoId={id} toggleFavorite={toggleFavorite} favoritePhotos={favoritePhotos}/>
+    <div
+      className="photo-list__item">
+      <PhotoFavButton
+        photoId={id}
+        toggleFavorite={toggleFavorite}
+        favoritePhotos={favoritePhotos}
+      />
       <img
         className="photo-list__image"
         src={imageSource}
         alt={`Photo ${id}`}
-        onClick={openModal}
+        onClick={() =>
+          openModal({
+            id,
+            imageSource,
+            profile,
+            name,
+            username,
+            location,
+            similarPhotos
+          })
+        }
       />
       <div className="photo-list__user-details">
         <img
@@ -30,13 +46,15 @@ const PhotoListItem = (props) => {
           src={profile}
           alt={`${username}'s profile`}
         />
-        <h3 className="photo-list__user-info">
+        <div className="photo-list__user-info">
           {name}
-          <p className="photo-list__user-location">
+          <div className="photo-list__user-location">
             {location.city}, {location.country}
-          </p>
-        </h3>
+          </div>
+        </div>
       </div>
+
+     
     </div>
   );
 };
