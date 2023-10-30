@@ -9,12 +9,13 @@ const initialState = {
 };
 
 const ACTIONS = {
-  FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
-  FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
-  SELECT_PHOTO: 'SELECT_PHOTO',
-  DISPLAY_PHOTO_DETAILS:'DISPLAY_PHOTO_DETAILS',
-  SET_PHOTO_DATA:'SET_PHOTO_DATA',
-  SET_TOPIC_DATA:'SET_TOPIC_DATA',
+  FAV_PHOTO_ADDED: "FAV_PHOTO_ADDED",
+  FAV_PHOTO_REMOVED: "FAV_PHOTO_REMOVED",
+  SELECT_PHOTO: "SELECT_PHOTO",
+  DISPLAY_PHOTO_DETAILS: "DISPLAY_PHOTO_DETAILS",
+  SET_PHOTO_DATA: "SET_PHOTO_DATA",
+  SET_TOPIC_DATA: "SET_TOPIC_DATA",
+  SET_PHOTOS_BY_TOPIC: "SET_PHOTOS_BY_TOPIC",
 };
 
 const reducer = (state, action) => {
@@ -41,10 +42,12 @@ const reducer = (state, action) => {
 
   case ACTIONS.SET_PHOTO_DATA:
     return { ...state, photoData: action.payload.photoData };
-    
+
   case ACTIONS.SET_TOPIC_DATA:
     return { ...state, topicData: action.payload.topicData };
-      
+
+  case ACTIONS.SET_PHOTOS_BY_TOPIC:
+    return { ...state, photoData: action.payload.photoData };
 
   default:
     throw new Error(
@@ -57,7 +60,7 @@ const useApplicationData = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    fetch('/api/photos')
+    fetch("/api/photos")
       .then((res) => {
         if (!res.ok) {
           throw new Error(`Request failed with status: ${res.status}`);
@@ -65,13 +68,16 @@ const useApplicationData = () => {
         return res.json();
       })
       .then((data) => {
-        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: { photoData: data } });
+        dispatch({
+          type: ACTIONS.SET_PHOTO_DATA,
+          payload: { photoData: data },
+        });
       })
       .catch((error) => {
-        throw error('An Error has occured:', error);
+        throw error("An Error has occured:", error);
       });
 
-    fetch('/api/topics')
+    fetch("/api/topics")
       .then((res) => {
         if (!res.ok) {
           throw new Error(`Request failed with status: ${res.status}`);
@@ -79,13 +85,15 @@ const useApplicationData = () => {
         return res.json();
       })
       .then((data) => {
-        dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: { topicData: data } });
+        dispatch({
+          type: ACTIONS.SET_TOPIC_DATA,
+          payload: { topicData: data },
+        });
       })
       .catch((error) => {
-        throw error('An Error has occured:', error);
+        throw error("An Error has occured:", error);
       });
   }, []);
-
 
   const toggleFavorite = (photoId) => {
     if (state.favoritePhotos.includes(photoId)) {
@@ -111,13 +119,31 @@ const useApplicationData = () => {
     });
   };
 
- 
+  const fetchPhotosByTopic = (topicId) => {
+    fetch(`http://localhost:8001/api/topics/photos/${topicId}`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Request failed with status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        dispatch({
+          type: ACTIONS.SET_PHOTOS_BY_TOPIC,
+          payload: { photoData: data },
+        });
+      })
+      .catch((error) => {
+        throw error;
+      });
+  };
 
   return {
     state,
     toggleFavorite,
     openModal,
     closeModal,
+    fetchPhotosByTopic,
   };
 };
 

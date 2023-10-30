@@ -4,12 +4,16 @@ import "../styles/TopicList.scss";
 
 
 const TopicList = (props) => {
-  const { topics } = props;
+  const { topics, fetchPhotosByTopic } = props;
 
   return (
     <div className="top-nav-bar__topic-list">
-      {topics.map((data) => (
-        <TopicListItem key={data.id} topic={data.title} slug={data.slug} />
+      {topics.map((topic) => (
+        <TopicListItem
+          key={topic.id}
+          topic={topic}
+          fetchPhotosByTopic={fetchPhotosByTopic}
+        />
       ))}
     </div>
   );

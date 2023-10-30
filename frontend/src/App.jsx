@@ -11,7 +11,7 @@ const App = () => {
     toggleFavorite,
     openModal,
     closeModal,
-   
+    fetchPhotosByTopic,
   } = useApplicationData();
 
   
@@ -24,7 +24,7 @@ const App = () => {
         toggleFavorite={toggleFavorite}
         favoritePhotos={state.favoritePhotos}
         selectedPhoto={state.selectedPhoto}
-        
+        fetchPhotosByTopic={fetchPhotosByTopic}
       />
 
       <PhotoDetailsModal
