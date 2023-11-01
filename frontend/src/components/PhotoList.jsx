@@ -6,7 +6,7 @@ import "../styles/PhotoList.scss";
 
 const PhotoList = ({ photos, toggleFavorite, favoritePhotos, openModal }) => {
   
-  console.log("photos", photos);
+  
   return (
     <ul className="photo-list">
       {photos.map((photo) => (

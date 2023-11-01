@@ -56,6 +56,8 @@ const reducer = (state, action) => {
   }
 };
 
+
+// Fetch photos and topics
 const useApplicationData = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -63,7 +65,6 @@ const useApplicationData = () => {
     fetch("/api/photos")
       .then((res) => res.json())
       .then((data) => {
-        // console.log("data", data);
         dispatch({
           type: ACTIONS.SET_PHOTO_DATA,
           payload: { photoData: data },
@@ -82,6 +83,8 @@ const useApplicationData = () => {
       );
   }, []);
 
+  
+  // Dispatch to be used in App.js and components
   const toggleFavorite = (photoId) => {
     if (state.favoritePhotos.includes(photoId)) {
       dispatch({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: { id: photoId } });
@@ -91,7 +94,6 @@ const useApplicationData = () => {
   };
 
   const openModal = (photo) => {
-    console.log("photo", photo);
     dispatch({ type: ACTIONS.SELECT_PHOTO, payload: { photo } });
     dispatch({
       type: ACTIONS.DISPLAY_PHOTO_DETAILS,

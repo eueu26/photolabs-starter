@@ -14,7 +14,7 @@ const App = () => {
     fetchPhotosByTopic,
   } = useApplicationData();
 
-  
+  // set up the main parent of the single-page application
   return (
     <div className="App">
       <HomeRoute

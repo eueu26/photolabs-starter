@@ -20,8 +20,6 @@ const PhotoDetailsModal = ({
     ? Object.values(photoData.similarPhotos)
     : [];
 
-  console.log("similarPhotoArr", similarPhotosArray);
-  console.log("photoData", photoData);
 
   return (
     <div className="photo-details-modal">
