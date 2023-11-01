@@ -3,9 +3,7 @@ import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
 
 
-const PhotoList = (props) => {
-  const { photos, toggleFavorite, favoritePhotos, openModal } = props;
-
+const PhotoList = ({ photos, toggleFavorite, favoritePhotos, openModal }) => {
   
 
   return (

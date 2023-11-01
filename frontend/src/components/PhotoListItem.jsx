@@ -2,19 +2,8 @@ import React from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
-const PhotoListItem = (props) => {
-  const {
-    imageSource,
-    profile,
-    name,
-    location,
-    id,
-    username,
-    toggleFavorite,
-    favoritePhotos,
-    openModal,
-    similarPhotos,
-  } = props;
+const PhotoListItem = ({ id, location, imageSource, username, name, profile, favoritePhotos, toggleFavorite, openModal, similarPhotos }) => {
+  
 
   return (
     <div
@@ -31,11 +20,11 @@ const PhotoListItem = (props) => {
         onClick={() =>
           openModal({
             id,
-            imageSource,
-            profile,
-            name,
-            username,
             location,
+            imageSource,
+            username,
+            name,
+            profile,
             similarPhotos
           })
         }

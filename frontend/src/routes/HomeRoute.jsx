@@ -3,10 +3,8 @@ import TopNavigationBar from 'components/TopNavigationBar';
 import '../styles/HomeRoute.scss';
 import PhotoList from 'components/PhotoList';
 
-const HomeRoute = (props) => {
-  const { photos, topics, openModal, selectedPhoto, toggleFavorite, favoritePhotos, fetchPhotosByTopic } = props;
+const HomeRoute = ({ photos, topics, openModal, selectedPhoto, toggleFavorite, favoritePhotos, fetchPhotosByTopic }) => {
   
-
   return (
     <div className="home-route">
       <TopNavigationBar  topics={topics} toggleFavorite={toggleFavorite} favoritePhotos={favoritePhotos} fetchPhotosByTopic={fetchPhotosByTopic} />

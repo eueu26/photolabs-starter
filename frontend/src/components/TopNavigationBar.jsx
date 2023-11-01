@@ -3,8 +3,7 @@ import FavBadge from "./FavBadge";
 import TopicList from "./TopicList";
 import "../styles/TopNavigationBar.scss";
 
-const TopNavigationBar = (props) => {
-  const { topics, toggleFavorite, favoritePhotos, fetchPhotosByTopic } = props;
+const TopNavigationBar = ({ topics, toggleFavorite, favoritePhotos, fetchPhotosByTopic }) => {
 
   return (
     <div className="top-nav-bar">

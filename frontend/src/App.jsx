@@ -31,9 +31,9 @@ const App = () => {
         isOpen={state.isModalOpen}
         onClose={closeModal}
         photoData={state.selectedPhoto}
-        toggleFavorite={toggleFavorite}
-        favoritePhotos={state.favoritePhotos}
         openModal={openModal}
+        favoritePhotos={state.favoritePhotos}
+        toggleFavorite={toggleFavorite}
         
       />
     </div>

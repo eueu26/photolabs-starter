@@ -3,11 +3,7 @@ import FavIcon from "./FavIcon";
 import "../styles/PhotoFavButton.scss";
 
 
-const PhotoFavButton = (props) => {
- 
-
-  const { toggleFavorite, favoritePhotos = [], photoId } = props;
-
+const PhotoFavButton = ({ toggleFavorite, favoritePhotos = [], photoId }) => {
   
   
   return (
