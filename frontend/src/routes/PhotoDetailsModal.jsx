@@ -31,20 +31,19 @@ const PhotoDetailsModal = ({
       >
         <img src={closeSymbol} alt="close symbol" />
       </button>
-      <div className="photo-details-modal__header">
+
+      <div className="photo-details-modal__images">
         <PhotoFavButton
           photoId={photoData.id}
           toggleFavorite={toggleFavorite}
           favoritePhotos={favoritePhotos}
         />
 
-        <div className="photo-details-modal__top-bar">
-          <img
-            className="photo-details-modal__image"
-            src={photoData.imageSource}
-            alt={`Photo ${photoData.id}`}
-          />
-        </div>
+        <img
+          className="photo-details-modal__image"
+          src={photoData.imageSource}
+          alt={`Photo ${photoData.id}`}
+        />
       </div>
 
       <div className="photo-details-modal__top-bar">

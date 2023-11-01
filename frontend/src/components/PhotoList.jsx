@@ -14,7 +14,7 @@ const PhotoList = ({ photos, toggleFavorite, favoritePhotos, openModal }) => {
           key={photo.id}
           id={photo.id}
           location={photo.location}
-          imageSource={photo.urls.regular}
+          imageSource={photo.urls.full}
           username={photo.user.username}
           name={photo.user.name}
           profile={photo.user.profile}
