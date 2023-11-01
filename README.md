@@ -1,7 +1,14 @@
-# react-photolabs
-The PhotoLabs project for the Web Development React course programming.
-
 # Photolabs
+
+A React-based single-page application which permits users to share, like and view images.
+
+A project completed from the Web Development React course programming. 
+
+![Screenshot of Home page](https://github.com/eueu26/photolabs-starter/blob/main/frontend/public/docs/homePage.png?raw=true)
+
+![Screenshot of ModalOpen](https://github.com/eueu26/photolabs-starter/blob/main/frontend/public/docs/ModalOpen.png?raw=true)
+
+![Screenshot of similar photos](https://github.com/eueu26/photolabs-starter/blob/main/frontend/public/docs/similarPhotos.png?raw=true)
 
 ## Setup
 
@@ -22,3 +29,11 @@ Read `backend/readme` for further setup details.
 cd backend
 npm start
 ```
+
+## Dependencies 
+
+- React
+- Webpack
+- Express
+- Cors
+- Dontenv
