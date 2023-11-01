@@ -3,9 +3,10 @@ import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
 
 
+
 const PhotoList = ({ photos, toggleFavorite, favoritePhotos, openModal }) => {
   
-
+  console.log("photos", photos);
   return (
     <ul className="photo-list">
       {photos.map((photo) => (
@@ -20,11 +21,10 @@ const PhotoList = ({ photos, toggleFavorite, favoritePhotos, openModal }) => {
           favoritePhotos={favoritePhotos}
           toggleFavorite={toggleFavorite}
           openModal={openModal}
-          similarPhotos={photo.similarPhotos}
+          similarPhotos={photo.similar_photos}
         />
       ))}
     </ul>
   );
 };
-
 export default PhotoList;

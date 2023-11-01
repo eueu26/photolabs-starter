@@ -4,18 +4,24 @@ import closeSymbol from "../assets/closeSymbol.svg";
 import PhotoList from "components/PhotoList";
 import PhotoFavButton from "components/PhotoFavButton";
 
-const PhotoDetailsModal = ({ isOpen, onClose, photoData, openModal, favoritePhotos, toggleFavorite }) => {
- 
-
+const PhotoDetailsModal = ({
+  isOpen,
+  onClose,
+  photoData,
+  openModal,
+  favoritePhotos,
+  toggleFavorite,
+}) => {
   if (!isOpen) {
     return null;
   }
 
-  console.log("photoData", photoData);
-
   const similarPhotosArray = photoData.similarPhotos
     ? Object.values(photoData.similarPhotos)
     : [];
+
+  console.log("similarPhotoArr", similarPhotosArray);
+  console.log("photoData", photoData);
 
   return (
     <div className="photo-details-modal">

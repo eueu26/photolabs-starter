@@ -3,7 +3,7 @@ import FavIcon from "./FavIcon";
 import "../styles/PhotoFavButton.scss";
 
 
-const PhotoFavButton = ({ toggleFavorite, favoritePhotos = [], photoId }) => {
+const PhotoFavButton = ({ toggleFavorite, favoritePhotos, photoId }) => {
   
   
   return (

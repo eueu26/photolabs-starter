@@ -61,38 +61,25 @@ const useApplicationData = () => {
 
   useEffect(() => {
     fetch("/api/photos")
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(`Request failed with status: ${res.status}`);
-        }
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((data) => {
+        // console.log("data", data);
         dispatch({
           type: ACTIONS.SET_PHOTO_DATA,
           payload: { photoData: data },
         });
-      })
-      .catch((error) => {
-        throw error("An Error has occured:", error);
       });
+  }, []);
 
+  useEffect(() => {
     fetch("/api/topics")
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(`Request failed with status: ${res.status}`);
-        }
-        return res.json();
-      })
-      .then((data) => {
+      .then((res) => res.json())
+      .then((data) =>
         dispatch({
           type: ACTIONS.SET_TOPIC_DATA,
           payload: { topicData: data },
-        });
-      })
-      .catch((error) => {
-        throw error("An Error has occured:", error);
-      });
+        })
+      );
   }, []);
 
   const toggleFavorite = (photoId) => {
@@ -104,6 +91,7 @@ const useApplicationData = () => {
   };
 
   const openModal = (photo) => {
+    console.log("photo", photo);
     dispatch({ type: ACTIONS.SELECT_PHOTO, payload: { photo } });
     dispatch({
       type: ACTIONS.DISPLAY_PHOTO_DETAILS,
@@ -120,7 +108,7 @@ const useApplicationData = () => {
   };
 
   const fetchPhotosByTopic = (topicId) => {
-    fetch(`http://localhost:8001/api/topics/photos/${topicId}`)
+    fetch(`/api/topics/photos/${topicId}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error(`Request failed with status: ${res.status}`);
